@@ -1,0 +1,55 @@
+<section class="container search">
+  <form class="navbar-form" role="search">
+    <div class="form-group">
+      <input type="text" name="search" value="<%= @search %>" class="form-control" placeholder="By dish, ingredient, source, whatevs   ¯\_(ツ)_/¯">
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="reset"  class="btn btn-warning"
+            onclick="window.location.href='/recipes'">Reset</button>
+  </form>
+</section>
+
+<section class="container recipes">
+  <h3><img src="images/chef-u.png"/> is currently under construction, be we do have a few delicious recipes for you to chew on...</h3>
+    <div class="list-group">
+      <div class="row">
+      <% @recipes.each do |recipe| %>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 recipe-box">
+          <a href="recipes/<%= recipe.id %>" class="list-group-item">
+            <article class="row">
+              <div class="col-xs-5 recipe-image-box">
+                <img class="middle" width=200px src="/images/<%= recipe.image_file %>"/>
+              </div> 
+              <div class="col-xs-7 recipe-name-box">
+                <h3><%= recipe.name %></h3>
+                <ul class="ul-horizontal">
+                  <li><strong>Category: </strong><%= recipe.category %></li>
+                  <!--<dd><%= recipe.category %></dd>-->
+                  <li><strong>Rating:</strong>
+                  <% if recipe.rating[0].to_s.include?("available") %>
+                    <%= "no rating available" %>
+                  <% else %>
+                      <%= "#{recipe.rating[0]} out of #{recipe.rating[1]} #{recipe.rating[2]}" %>
+                  <% end %></li>   
+                  <li><strong>Time Required:</strong><br>
+                  <% recipe.cooking_time.each do |key, value| %>
+                    <%= "#{key.to_s.capitalize}: #{value.to_s} mins" %><br>
+                  <% end %></li>
+                </ul>
+              </div>
+            </article>  
+            <article class="row">
+              <div class="col-xs-12">
+                <dl class="dl-horizontal rep-comment-box">
+                  <h4>What people are saying: </h4>
+                  <p><%= recipe.comment %></p>
+                </dl>
+              </div>
+            </article>
+          </a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>      
+      

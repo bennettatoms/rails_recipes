@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+
+  root 'static_pages#home'
+
+  get '/about',       to: 'static_pages#about'
+
+  get '/contact',     to: 'static_pages#contact'
+
+  get '/recipes',     to: 'recipes#index'
+
+  get '/recipes/:id', to: 'recipes#show', as: :recipe
+
+end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +65,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+

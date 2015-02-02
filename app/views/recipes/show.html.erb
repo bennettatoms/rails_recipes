@@ -1,0 +1,84 @@
+<section class="container-fluid buttonage">
+  <div class="back-and-one-oh-one">
+    <button type="button"
+            class="btn btn-info"
+            onclick="window.history.back()">Back</button>
+  
+  <!-- Button trigger modal -->
+  <% if @recipe.id == 3 %> 
+    <button type="button" class="btn btn-warning btn-lg one-oh-one" data-toggle="modal" data-target="#myModal"><img src="/images/chef_u_logo.png">  Couscous Salad 101</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Couscous Salad: Now a Minor Motion Picture</h4><br>
+            <p2>courtesy of marthastewart.com</p2>
+          </div>
+          <div class="modal-body">
+            <script height="420px" width="560px" src="http://player.ooyala.com/iframe.js#pbid=N2E2OWJiNmE0MWNhZTk2ZTM0NWM0YmVi&ec=l1Z28zNzpTdDqRnyVM_kAUZOfUL0xV9r"></script>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+<% end %>
+</section>
+<section class="container-fluid recipe">
+  <div class="row">
+    <h2 class="text-center"><%= @recipe.name %></h2>
+    <div class="col-md-6 col-md-offset-1">
+      <dl class="dl-horizontal individual">
+        <dt>Category:</dt>
+        <dd><%= @recipe.category %></dd>
+        <dt>Time Required:</dt>
+        <% @recipe.cooking_time.each do |key, value| %>
+          <dd><%= "#{key.to_s.capitalize}: #{value.to_s} mins" %></dd>
+        <% end %>  
+        <dt>Rating:</dt>
+        <% if @recipe.rating[0].to_s.include?("available") %>
+           <dd><%= "no rating available" %></dd>
+        <% else %>
+           <dd><%= "#{@recipe.rating[0]} out of #{@recipe.rating[1]} #{@recipe.rating[2]}" %></dd>
+        <% end %>   
+        <dt>Serves:</dt>
+        <dd><%= @recipe.serves %></dd>
+        <dt>Ingredients:</dt>
+        <% @recipe.ingredients.each do |key, value| %>
+          <dd><%= "#{value.to_s} #{key.to_s}" %></dd>
+        <% end %>
+      </dl>
+    </div>
+    <div class="col-md-5 item-image">
+      <img class="middle" width=300px src="/images/<%= @recipe.image_file %>"/>
+      <div class="social-network-icons">
+        <a class="btn btn-social-icon btn-twitter">
+          <i class="fa fa-twitter"></i>
+        </a>  
+        <a class="btn btn-social-icon btn-facebook">
+          <i class="fa fa-facebook"></i>
+        </a> 
+         <a class="btn btn-social-icon btn-pinterest">
+          <i class="fa fa-pinterest"></i>
+        </a>
+      </div>
+    </div>  
+  </div>
+  <div class="row">>
+    <div class="col-md-10 col-md-offset-1">
+      <dl class="dl-horizontal preparation">  
+        <dt>Preparation:</dt>
+        <% @recipe.preparation.each_with_index do |step, index| %>
+          <dd><%= "\n#{index + 1}) #{step}\n" %></dd>
+        <% end %>  
+        <dt>Source:</dt>
+        <dd><a href="<%= @recipe.source %>" target="_blank"><%= @recipe.source %>></a></dd>
+      </dl>
+    </div>
+  </div>
+</section>
