@@ -25,8 +25,8 @@
                 <ul class="ul-horizontal">
                   <li><strong>Category: </strong><%= recipe.category %></li>
                   <li><strong>Rating:</strong>
-                  <% if recipe.rating[0].to_s.include?("available") %>
-                    <%= "no rating available" %>
+                  <% if recipe.rating.first == 'no rating available' %>
+                    no rating available
                   <% else %>
                       <%= "#{recipe.rating[0]} out of #{recipe.rating[1]} #{recipe.rating[2]}" %>
                   <% end %></li>   

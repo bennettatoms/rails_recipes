@@ -849,12 +849,12 @@ class RecipeBook
     end
   end
 
-  def self.search(pattern)
+  def self.search(term)
     all.select do |recipe|
-      recipe.name.downcase.include?(pattern.downcase) ||
-        recipe.category.downcase.include?(pattern.downcase) ||
-        recipe.source.downcase.include?(pattern.downcase) ||
-        recipe.ingredients.keys.include?(pattern.downcase)
+      recipe.name.downcase.include?(term.downcase) ||
+        recipe.category.downcase.include?(term.downcase) ||
+        recipe.source.downcase.include?(term.downcase) ||
+        recipe.ingredients.keys.include?(term.downcase)
     end
   end
 
