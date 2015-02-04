@@ -1,7 +1,8 @@
 class RecipesController < ApplicationController
   def index
     @active = 'recipes'
-    @recipes = RecipeBook.all
+    search_term = params[:search]
+    @recipes = search_term ? RecipeBook.search(search_term) : RecipeBook.all
   end
 
   def show
