@@ -6,7 +6,7 @@ describe 'static pages' do
   describe 'home page' do 
     before { visit root_path }
 
-    it { should have_title('Recipes') }
+    it { should have_title('Chef-U') }
     it { should have_selector('h1', text: 'Welcome') }
   end
 

@@ -10,7 +10,7 @@
 </section>
 
 <section class="container recipes">
-  <h3><img src="images/chef-u.png"/> is currently under construction, be we do have a few delicious recipes for you to chew on...</h3>
+  <h3><%= image_tag("chef-u.png") %> is currently under construction, be we do have a few delicious recipes for you to chew on...</h3>
     <div class="list-group">
       <div class="row">
       <% @recipes.each do |recipe| %>
@@ -18,7 +18,7 @@
           <a href="recipes/<%= recipe.id %>" class="list-group-item">
             <article class="row">
               <div class="col-xs-5 recipe-image-box">
-                <img class="middle" width=200px src="/images/<%= recipe.image_file %>"/>
+                <%= image_tag("recipe.image_file", width: 200) %>
               </div> 
               <div class="col-xs-7 recipe-name-box">
                 <h3><%= recipe.name %></h3>

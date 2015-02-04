@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Recipes</title>
+  <title>Chef-U</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+   <link href='http://fonts.googleapis.com/css?family=Yesteryear' rel='stylesheet' type='text/css'>
 </head>
 <body>
-
+<%= render 'layouts/header' %>
 <%= yield %>
-
+<%= render 'layouts/footer' %>
 </body>
 </html>
+
+
+
