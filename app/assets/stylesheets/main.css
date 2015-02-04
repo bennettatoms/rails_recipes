@@ -203,7 +203,7 @@ height: 2em;
 
 .btn-twitter {
   background-color: #9ba4ab;
-  background-image: url("../images/twitter-logo.png");
+  background-image: url("/twitter-logo.png");
   background-size: 75px 25px;
   background-repeat: no-repeat;
   background-position: center center;
@@ -211,7 +211,7 @@ height: 2em;
 
 .btn-facebook {
   background-color: white;
-  background-image: url("../images/facebook_logo.png");
+  background-image: url("/facebook_logo.png");
   background-size: 75px 25px;
   background-repeat: no-repeat;
   background-position: center center;
@@ -219,7 +219,7 @@ height: 2em;
 
 .btn-pinterest {
   background-color: #5d5756;
-  background-image: url("../images/pinterest_logo.png");
+  background-image: url("/pinterest_logo.png");
   background-size: 75px 25px;
   background-repeat: no-repeat;
   background-position: center center;

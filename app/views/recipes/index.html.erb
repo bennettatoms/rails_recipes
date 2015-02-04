@@ -18,13 +18,12 @@
           <a href="recipes/<%= recipe.id %>" class="list-group-item">
             <article class="row">
               <div class="col-xs-5 recipe-image-box">
-                <%= image_tag("recipe.image_file", width: 200) %>
+                <%= image_tag(recipe.image_file, width: 200) %>
               </div> 
               <div class="col-xs-7 recipe-name-box">
                 <h3><%= recipe.name %></h3>
                 <ul class="ul-horizontal">
                   <li><strong>Category: </strong><%= recipe.category %></li>
-                  <!--<dd><%= recipe.category %></dd>-->
                   <li><strong>Rating:</strong>
                   <% if recipe.rating[0].to_s.include?("available") %>
                     <%= "no rating available" %>

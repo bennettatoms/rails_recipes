@@ -6,7 +6,7 @@
   
   <!-- Button trigger modal -->
   <% if @recipe.id == 3 %> 
-    <button type="button" class="btn btn-warning btn-lg one-oh-one" data-toggle="modal" data-target="#myModal"><img src="/images/chef_u_logo.png">  Couscous Salad 101</button>
+    <button type="button" class="btn btn-warning btn-lg one-oh-one" data-toggle="modal" data-target="#myModal"><%= image_tag("chef_u_logo.png") %>  Couscous Salad 101</button>
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -55,7 +55,7 @@
       </dl>
     </div>
     <div class="col-md-5 item-image">
-      <img class="middle" width=300px src="/images/<%= @recipe.image_file %>"/>
+      <%= image_tag(@recipe.image_file, width: 300) %>
 
       <div class="social-network-icons">
         <a class="btn btn-social-icon btn-twitter">
