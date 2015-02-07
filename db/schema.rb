@@ -11,9 +11,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150207171526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cooking_times", force: :cascade do |t|
+    t.integer  "total"
+    t.integer  "prep"
+    t.integer  "cook"
+    t.integer  "inactive"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string   "name"
+    t.float    "quantity"
+    t.string   "unit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.float    "total"
+    t.float    "out_of"
+    t.string   "unit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "category"
+    t.integer  "serves"
+    t.string   "difficulty"
+    t.string   "image_file"
+    t.string   "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "steps", force: :cascade do |t|
+    t.text     "thearray"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
