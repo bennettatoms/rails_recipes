@@ -27,7 +27,8 @@ RSpec.describe Ingredient, :type => :model do
         before { ingredient.name = 'a' * 256 }
         it { should_not be_valid }
       end
-
+    end
+    
     describe 'quantity' do 
       context 'not present' do 
         before { ingredient.quantity = nil }

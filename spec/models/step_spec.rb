@@ -8,7 +8,7 @@ RSpec.describe Step, :type => :model do
 
   it { should respond_to[:thearray] }
 
-  it { should _be_valid }
+  it { should be_valid }
 
   describe 'validations' do 
     describe 'thearray' do 
