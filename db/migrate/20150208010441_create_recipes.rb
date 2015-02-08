@@ -6,7 +6,7 @@ class CreateRecipes < ActiveRecord::Migration
       t.integer :serves
       t.string :difficulty
       t.string :image_file
-      t.string :comment
+      t.text :comment
 
       t.timestamps null: false
     end

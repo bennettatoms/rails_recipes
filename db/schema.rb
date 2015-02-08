@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207171526) do
+ActiveRecord::Schema.define(version: 20150208015513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150207171526) do
 
   create_table "ratings", force: :cascade do |t|
     t.float    "total"
-    t.float    "out_of"
+    t.integer  "out_of"
     t.string   "unit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20150207171526) do
     t.integer  "serves"
     t.string   "difficulty"
     t.string   "image_file"
-    t.string   "comment"
+    t.text     "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
