@@ -2,13 +2,13 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
 
+  resources :recipes, only: [:index, :show, :new, :create]
   get '/about',       to: 'static_pages#about'
-
   get '/contact',     to: 'static_pages#contact'
 
-  get '/recipes',     to: 'recipes#index'
+  # get '/recipes',     to: 'recipes#index'
 
-  get '/recipes/:id', to: 'recipes#show', as: :recipe
+  # get '/recipes/:id', to: 'recipes#show', as: :recipe
 
 end
   # The priority is based upon order of creation: first created -> highest priority.

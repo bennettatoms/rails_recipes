@@ -13,22 +13,22 @@ RSpec.describe Rating, :type => :model do
   it { should be_valid }
 
   describe 'validations' do 
-    describe 'available?' do 
-      context 'no rating available' do 
-        before { rating.available? = false }
-        it {should be_valid }
-      end
+    # describe 'available?' do 
+    #   context 'no rating available' do 
+    #     before { rating.available? = false }
+    #     it {should be_valid }
+    #   end
 
-      context 'rating is available' do 
-        before { rating.available? = true }
-        it {should be_valid }
-      end
+    #   context 'rating is available' do 
+    #     before { rating.available? = true }
+    #     it {should be_valid }
+    #   end
 
-      context 'is not boolean value' do 
-        before { rating.available? = 'yes' }
-        it {should_not be_valid }
-      end
-    end
+    #   context 'is not boolean value' do 
+    #     before { rating.available? = 'yes' }
+    #     it {should_not be_valid }
+    #   end
+    # end
 
     describe 'total' do 
       context 'is empty' do 
