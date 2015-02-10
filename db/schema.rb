@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208040053) do
+ActiveRecord::Schema.define(version: 20150210001127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20150208040053) do
   end
 
   create_table "ratings", force: :cascade do |t|
+    t.boolean  "available?"
     t.float    "total"
     t.integer  "out_of"
     t.string   "unit"
@@ -54,7 +55,7 @@ ActiveRecord::Schema.define(version: 20150208040053) do
   end
 
   create_table "steps", force: :cascade do |t|
-    t.text     "thearray"
+    t.text     "context"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

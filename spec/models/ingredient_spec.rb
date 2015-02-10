@@ -5,9 +5,9 @@ RSpec.describe Ingredient, :type => :model do
 
   subject { ingredient }
  
-  it { should respond_to[:name] }
-  it { should respond_to[:quantity] }
-  it { should respond_to[:unit] }
+  it { should respond_to(:name) }
+  it { should respond_to(:quantity) }
+  it { should respond_to(:unit) }
 
   it { should be_valid }
 
@@ -33,13 +33,15 @@ RSpec.describe Ingredient, :type => :model do
       context 'not present' do 
         before { ingredient.quantity = nil }
         it { should_not be_valid }
+      end
 
+      context 'quantity is to taste rather than amount' do 
         before { ingredient.quantity = 'to taste' }
         it { should be_valid } 
       end
 
-      context 'negative amount' do 
-        before { ingredient.quantity <= 0 }
+      context 'is negative amount' do 
+        before { ingredient.quantity = -3 }
         it { should_not be_valid }
       end
     end 
@@ -48,7 +50,9 @@ RSpec.describe Ingredient, :type => :model do
       context 'not present' do 
         before { ingredient.unit = nil }
         it { should_not be_valid }
+      end
 
+      context 'bypass unit if quantity is to taste' do 
         before { ingredient.quantity = 'to taste' }
         it { should be_valid } 
       end

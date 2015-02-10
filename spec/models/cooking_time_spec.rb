@@ -5,10 +5,10 @@ RSpec.describe CookingTime, :type => :model do
 
   subject { cooking_time }
 
-  it { should respond_to[:total] }
-  it { should respond_to[:prep] }
-  it { should respond_to[:cook] }
-  it { should respond_to[:inactive] }
+  it { should respond_to(:total) }
+  it { should respond_to(:prep) }
+  it { should respond_to(:cook) }
+  it { should respond_to(:inactive) }
   
   it { should be_valid }
 
@@ -19,18 +19,24 @@ RSpec.describe CookingTime, :type => :model do
         it { should_not be_valid }
       end
 
-      context 'is positive integer' do 
+      context 'is negative integer' do 
         before { cooking_time.total = -5 }
-        it {should_not be_valid }
+        it { should_not be_valid }
+      end
 
+      context 'is zero' do
         before { cooking_time.total = 0 }
-        it {should_not be_valid }
+        it { should_not be_valid }
+      end
 
+      context 'is not integer' do
         before { cooking_time.total = 11.3 }
-        it {should_not be_valid }
+        it { should_not be_valid }
+      end
 
+      context 'is positive integer' do  
         before { cooking_time.total = 15 }
-        it {should be_valid }
+        it { should be_valid }
       end
     end
 
@@ -40,18 +46,24 @@ RSpec.describe CookingTime, :type => :model do
         it { should_not be_valid }
       end
 
-      context 'is positive integer or 0' do 
+      context 'is negative integer' do 
         before { cooking_time.prep = -5 }
-        it {should_not be_valid }
+        it { should_not be_valid }
+      end
 
+      context 'is not integer' do 
         before { cooking_time.prep = 17.4 }
-        it {should_not be_valid }
+        it { should_not be_valid }
+      end
 
+      context 'is zero' do 
         before { cooking_time.prep = 0 }
-        it {should be_valid }
+        it { should be_valid }
+      end
 
+      context 'is positive integer' do 
         before { cooking_time.prep = 15 }
-        it {should be_valid }
+        it { should be_valid }
       end
     end
 
@@ -61,18 +73,24 @@ RSpec.describe CookingTime, :type => :model do
         it { should_not be_valid }
       end
 
-      context 'is positive integer or 0' do 
+      context 'is negative integer' do 
         before { cooking_time.cook = -5 }
-        it {should_not be_valid }
+        it { should_not be_valid }
+      end
 
+      context 'is not integer' do 
         before { cooking_time.cook = 17.4 }
-        it {should_not be_valid }
+        it { should_not be_valid }
+      end
 
+       context 'is zero' do 
         before { cooking_time.cook = 0 }
-        it {should be_valid }
+        it { should be_valid }
+      end
 
+      context 'is positive integer' do 
         before { cooking_time.cook = 15 }
-        it {should be_valid }
+        it { should be_valid }
       end
     end
 
@@ -82,18 +100,24 @@ RSpec.describe CookingTime, :type => :model do
         it { should_not be_valid }
       end
 
-      context 'is positive integer or 0' do 
+      context 'is negative integer' do 
         before { cooking_time.inactive = -5 }
-        it {should_not be_valid }
+        it { should_not be_valid }
+      end
 
+      context 'is not integer' do 
         before { cooking_time.inactive = 17.4 }
-        it {should_not be_valid }
+        it { should_not be_valid }
+      end
 
+      context 'is zero' do 
         before { cooking_time.inactive = 0 }
-        it {should be_valid }
+        it { should be_valid }
+      end
 
+      context 'is positive integer' do 
         before { cooking_time.inactive = 15 }
-        it {should be_valid }
+        it { should be_valid }
       end
     end
   end

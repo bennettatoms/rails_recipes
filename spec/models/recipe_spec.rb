@@ -7,13 +7,13 @@ RSpec.describe Recipe, :type => :model do
 
   subject { recipe }
 
-  it { should respond_to[:name] }
-  it { should respond_to[:category] }
-  it { should respond_to[:serves] }
-  it { should respond_to[:difficulty] }
-  it { should respond_to[:image_file] }
-  it { should respond_to[:comment] }
-  it { should respond_to[:source] }
+  it { should respond_to(:name) }
+  it { should respond_to(:category) }
+  it { should respond_to(:serves) }
+  it { should respond_to(:difficulty) }
+  it { should respond_to(:image_file) }
+  it { should respond_to(:comment) }
+  it { should respond_to(:source) }
 
   it { should be_valid }
 
@@ -71,10 +71,14 @@ RSpec.describe Recipe, :type => :model do
       context 'is integer' do 
         before { recipe.serves = 4 }
         it { should be_valid }
+      end
 
+      context 'is not an integer' do 
         before { recipe.serves = 2.7 }
         it { should_not be_valid }
+      end
 
+      context 'is negative integer' do 
         before { recipe.serves = -3 }
         it { should_not be_valid }
       end
