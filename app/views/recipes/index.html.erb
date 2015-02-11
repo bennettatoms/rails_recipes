@@ -1,14 +1,5 @@
 <%= provide(:title, 'Recipes') %>
-<section class="container search">
-  <form class="navbar-form" role="search">
-    <div class="form-group">
-      <input type="text" name="search" value="<%= @search %>" class="form-control" placeholder="By dish, ingredient, source, whatevs   ¯\_(ツ)_/¯">
-    </div>
-    <button type="submit" class="btn btn-success">Submit</button>
-    <button type="reset"  class="btn btn-warning"
-            onclick="window.location.href='/recipes'">Reset</button>
-  </form>
-</section>
+<%= render 'recipes/search' %>
 
 <section class="container recipes">
   <h3><%= image_tag("chef-u.png") %> is currently under construction, be we do have a few delicious recipes for you to chew on...</h3>
@@ -49,6 +40,14 @@
           </a>
         </div>
       <% end %>
+      <ul>
+        <% recipes.each do |recipe| %>
+          <li>
+            <%= link_to recipe.name, recipe_path(recipe.id) %> |
+            <%= link_to "delete", recipe, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </section>      

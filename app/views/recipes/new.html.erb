@@ -2,24 +2,5 @@
 
 <h1>Add Recipe</h1>
 
-<% form_for(@recipe) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
+<%= render 'recipes/fields' %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name, autofocus: true %>
-
-  <br>
-  <%= f.label :category %>
-  <%= f.text_field :category %>
-
-  <br>
-  <%= f.label :serves %>
-  <%= f.text_field :serves %>
-
-  <br>
-  <%= f.label :difficulty %>
-  <%= f.text_field :difficulty %>
-
-  <br>
-  <%= f.submit 'Create Recipe' %>
-<% end  %>
